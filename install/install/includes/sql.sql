@@ -627,7 +627,7 @@ CREATE TABLE users (
 --
 
 INSERT INTO users (id, permissions, email, email_new, username, password, pin, fname, lname, language, email_verified, vericode, vericode_expiry, oauth_provider, oauth_uid, gender, locale, gpluslink, account_owner, account_id, account_mgr, fb_uid, picture, created, protected, msg_exempt, dev_user, msg_notification, cloak_allowed, oauth_tos_accepted, un_changed, force_pr, logins, last_login, join_date, modified, active) VALUES
-(1, 1, 'userspicephp@userspice.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'The', 'Admin', 'en-US', true, 'nlPsJDtyeqFWsS', NULL, '', '', '', '', '', 1, 0, 0, '', '', NOW(), true, true, false, true, true, NULL, false, false, 0, '2022-12-23 07:16:27', '2022-12-25 00:00:00', '2016-01-01 00:00:00', true);
+(1, 1, 'userspicephp@userspice.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'The', 'Admin', 'en-US', true, 'nlPsJDtyeqFWsS', NULL, '', '', '', '', '', 1, 0, 0, '', '', '2015-01-01 00:00:00', true, true, false, true, true, NULL, false, false, 0, '2022-12-23 07:16:27', '2022-12-25 00:00:00', '2016-01-01 00:00:00', true);
 
 -- --------------------------------------------------------
 
@@ -885,8 +885,8 @@ CREATE TABLE us_menus (
 --
 
 INSERT INTO us_menus (id, menu_name, type, nav_class, theme, z_index, brand_html, disabled, justify) VALUES
-(1, 'Main Menu', 'horizontal', '', 'dark', 50, '<a href="{{root}}" >\r\n<img src="{{root}}users/images/logo.png" /></a>', 0, 'right'),
-(2, 'Dashboard Menu', 'horizontal', NULL, 'dark', 55, '<a href="{{root}}" title="Home Page">\r\n<img src="{{root}}users/images/logo.png" alt="Main logo" /></a>', 0, 'right');
+(1, 'Main Menu', 'horizontal', '', 'dark', 50, '&lt;a href=&quot;{{root}}&quot; &gt;\r\n&lt;img src=&quot;{{root}}users/images/logo.png&quot; /&gt;', 0, 'right'),
+(2, 'Dashboard Menu', 'horizontal', NULL, 'dark', 55, '&lt;a href=&quot;{{root}}&quot; title=&quot;Home Page&quot;&gt;\r\n&lt;img src=&quot;{{root}}users/images/logo.png&quot; alt=&quot;Main logo&quot; /&gt;&lt;/a&gt;', 0, 'right');
 
 -- --------------------------------------------------------
 

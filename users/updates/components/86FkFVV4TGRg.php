@@ -7,9 +7,9 @@
 $countE=0;
 
 $db->query("ALTER TABLE groups_menus
-  ALTER COLUMN id SET DATA TYPE SERIAL,
-  ALTER COLUMN group_id SET DATA TYPE INTEGER,
-  ALTER COLUMN menu_id SET DATA TYPE INTEGER");
+  ALTER COLUMN id SET DATA TYPE SERIAL NOT NULL,
+  ALTER COLUMN group_id SET DATA TYPE INTEGER NOT NULL,
+  ALTER COLUMN menu_id SET DATA TYPE INTEGER NOT NULL");
 if(!$db->error()) {
   logger(1,"System Updates","Updated group_menu int columns to 11 and unsigned");
 } else {

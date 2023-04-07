@@ -16,8 +16,10 @@ $db->query("CREATE TABLE us_menus (
     disabled smallint DEFAULT 0
   )");
 
-$db->query("INSERT INTO us_menus (id, menu_name, type, nav_class, theme, z_index, brand_html, disabled)
-            VALUES (1, 'Main Menu', 'horizontal', '', 'dark', 50, '<a href=\"{{root}}\"> <img src=\"{{root}}users/images/logo.png\" /></a>', 0)");
+$db->query("INSERT INTO us_menus (id, menu_name, type, nav_class, theme, z_index, brand_html, disabled) VALUES
+(1, 'Main Menu', 'horizontal', '', 'dark', 50, '&lt;a href=&quot;{{root}}&quot; &gt;
+&lt;img src=&quot;{{root}}users/images/logo.png&quot; /&gt;', 0)
+");
 
 
 $db->query("CREATE TABLE us_menu_items (
