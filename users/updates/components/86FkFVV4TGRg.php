@@ -6,10 +6,15 @@
 
 $countE=0;
 
-$db->query("ALTER TABLE groups_menus
-  ALTER COLUMN id SET DATA TYPE SERIAL NOT NULL,
-  ALTER COLUMN group_id SET DATA TYPE INTEGER NOT NULL,
-  ALTER COLUMN menu_id SET DATA TYPE INTEGER NOT NULL");
+$db->query("CREATE SEQUENCE IF NOT EXISTS groups_menus_id_seq;
+  ALTER TABLE groups_menus
+  ALTER COLUMN id SET DATA TYPE INTEGER,
+  ALTER COLUMN id SET DEFAULT nextval('groups_menus_id_seq'),
+  ALTER COLUMN id SET NOT NULL,
+  ALTER COLUMN group_id SET DATA TYPE INTEGER,
+  ALTER COLUMN group_id SET NOT NULL,
+  ALTER COLUMN menu_id SET DATA TYPE INTEGER,
+  ALTER COLUMN menu_id SET NOT NULL");
 if(!$db->error()) {
   logger(1,"System Updates","Updated group_menu int columns to 11 and unsigned");
 } else {

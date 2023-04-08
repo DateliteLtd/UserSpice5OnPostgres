@@ -405,7 +405,7 @@ INSERT INTO profiles (id, user_id, bio) VALUES
 --
 
 CREATE TABLE settings (
-  id serial PRIMARY KEY NOT NULL,
+  id serial PRIMARY KEY,
   recaptcha integer NOT NULL DEFAULT 0,
   force_ssl integer NOT NULL,
   css_sample integer NOT NULL,

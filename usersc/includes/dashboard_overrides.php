@@ -12,16 +12,3 @@ if(!file_exists($abs_us_root . $us_url_root . 'usersc/templates/'.$template_over
 
 //by default we are using menu id 2 for your admin menu, but you can put whatever you want in its place
 $menu_override = 2;
-
-//use sidebar menu instead of top menu
-$dashboard_sidebar_menu = false;
-
-//include the footer from your template on the userspice dashboard
-$use_template_footer = false; 
-
-//hide the top menu on the dashboard
-$hide_top_navigation = false;
-
-// The sidebar menu disappears on small screen sizes
-// If you show the sidebar and hide the top menu, a fallback menu will appear on small screens
-// giving you links to your home page and dashboard for convenience. 
