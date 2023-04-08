@@ -33,6 +33,4 @@ $db->query("INSERT INTO us_management (id, page, view, feature, access) VALUES
 (14, '_admin_user.php', 'user', 'User Management', ''),
 (15, '_admin_users.php', 'users', 'User Management', '')");
 
-$db->query("ALTER SEQUENCE us_management_id_seq RESTART WITH 16;");
-
 include($abs_us_root . $us_url_root . "users/updates/components/_complete.php");
