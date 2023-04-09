@@ -14,7 +14,7 @@ $indexes = [];
 foreach ($index as $i) {
   $indexes[] = $i->z_index;
 }
-$parentOpts = $db->query("SELECT * FROM us_menu_items WHERE menu = ? AND `type` = ? ORDER BY label", [$menuId, "dropdown"])->results();
+$parentOpts = $db->query("SELECT * FROM us_menu_items WHERE menu = ? AND \"type\" = ? ORDER BY label", [$menuId, "dropdown"])->results();
 $switchParent = ["0" => "Top Level"];
 foreach ($parentOpts as $p) {
   $switchParent[$p->id] = $p->label;
