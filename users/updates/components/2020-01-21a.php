@@ -7,7 +7,7 @@
 
 $countE=0;
 
-$db->query("ALTER TABLE pages ADD COLUMN core int(1) DEFAULT 0");
+$db->query("ALTER TABLE pages ADD COLUMN core integer DEFAULT 0");
 $core = [1,2,3,4,14,15,16,17,18,20,21,24,25,26,45,68,90,91];
 foreach($core as $c){
   $db->update('pages',$c,['core'=>1]);

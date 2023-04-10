@@ -7,9 +7,10 @@
 
 $countE=0;
 
-$db->query("ALTER TABLE logs ALTER COLUMN user_id SET NOT NULL;
-            ALTER TABLE logs ALTER COLUMN user_id SET DEFAULT 0;
-            ALTER TABLE logs ALTER COLUMN user_id SET DATA TYPE integer;");
+$db->query("ALTER TABLE logs ALTER COLUMN user_id SET NOT NULL");
+$db->query("ALTER TABLE logs ALTER COLUMN user_id SET DEFAULT 0");
+$db->query("ALTER TABLE logs ALTER COLUMN user_id SET DATA TYPE integer");
+
 
 if($countE==0) {
   $db->insert('updates',['migration'=>$update]);

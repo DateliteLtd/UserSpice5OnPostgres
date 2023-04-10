@@ -11,7 +11,7 @@ $db->query("CREATE TABLE us_menus (
     type varchar(75),
     nav_class varchar(255),
     theme varchar(25),
-    z_index int,
+    z_index integer,
     brand_html text,
     disabled smallint DEFAULT 0
   )");
@@ -24,7 +24,7 @@ $db->query("INSERT INTO us_menus (id, menu_name, type, nav_class, theme, z_index
 
 $db->query("CREATE TABLE us_menu_items (
     id SERIAL PRIMARY KEY,
-    menu int NOT NULL,
+    menu integer NOT NULL,
     type varchar(50),
     label varchar(255),
     link text,
@@ -32,8 +32,8 @@ $db->query("CREATE TABLE us_menu_items (
     li_class varchar(255),
     a_class varchar(255),
     link_target varchar(50),
-    parent int,
-    display_order int,
+    parent integer,
+    display_order integer,
     disabled smallint DEFAULT 0
   )");
 
