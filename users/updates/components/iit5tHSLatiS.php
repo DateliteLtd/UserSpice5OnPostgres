@@ -7,7 +7,7 @@
 
 $countE=0;
 
-$db->query("ALTER TABLE updates ADD COLUMN update_skipped boolean DEFAULT NULL");
+$db->query("ALTER TABLE updates ADD COLUMN update_skipped smallint DEFAULT NULL");
 if(!$db->error()) {
   logger(1,"System Updates","Inserted update_skipped to updates table");
 } else {

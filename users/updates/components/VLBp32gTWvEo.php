@@ -50,7 +50,7 @@ foreach($pages as $p) {
   $newTitle=$p[0];
   $page=$p[1];
   $oldTitle=$p[2];
-  $db->query("UPDATE pages SET title=? WHERE page = ? and (title = ? OR title = null)",[$newTitle,$page,$oldTitle]);
+  $db->query("UPDATE pages SET title=? WHERE page = ? and (title = ? OR title IS NULL)",[$newTitle,$page,$oldTitle]);
   if(!$db->error()) {
     if($db->count()>0) {
       logger(1,"System Updates","Updated ".$page." name to ".$newTitle);

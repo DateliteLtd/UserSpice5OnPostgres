@@ -31,7 +31,7 @@ CREATE TABLE audit (
   id serial PRIMARY KEY,
   "user" integer NOT NULL,
   page varchar(255) NOT NULL,
-  "timestamp" timestamptz NOT NULL DEFAULT now(),
+  "timestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   ip inet NOT NULL,
   viewed boolean NOT NULL
 );
@@ -69,7 +69,7 @@ VALUES (1, 0, 100, 'Auto-Backup', 'backup.php', 1, '2017-09-16 07:49:22', '2017-
 CREATE TABLE crons_logs (
   id serial PRIMARY KEY,
   cron_id integer NOT NULL,
-  "datetime" timestamp without time zone NOT NULL DEFAULT now(),
+  "datetime" timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
   user_id integer NOT NULL
 );
 
@@ -250,7 +250,7 @@ INSERT INTO menus (id, menu_title, parent, dropdown, logged_in, display_order, l
 --
 
 CREATE TABLE messages (
-  id serial PRIMARY KEY NOT NULL,
+  id serial PRIMARY KEY,
   msg_from integer NOT NULL,
   msg_to integer NOT NULL,
   msg_body text NOT NULL,
@@ -273,10 +273,10 @@ CREATE TABLE "message_threads" (
   "msg_subject" varchar(255) NOT NULL,
   "last_update" timestamp NOT NULL,
   "last_update_by" integer NOT NULL,
-  "archive_from" boolean NOT NULL DEFAULT false,
-  "archive_to" boolean NOT NULL DEFAULT false,
-  "hidden_from" boolean NOT NULL DEFAULT false,
-  "hidden_to" boolean NOT NULL DEFAULT false
+  "archive_from" smallint NOT NULL DEFAULT 0,
+  "archive_to" smallint NOT NULL DEFAULT 0,
+  "hidden_from" smallint NOT NULL DEFAULT 0,
+  "hidden_to" smallint NOT NULL DEFAULT 0
 );
 
 -- --------------------------------------------------------
@@ -290,10 +290,10 @@ CREATE TABLE "notifications" (
   "user_id" integer NOT NULL,
   "message" text NOT NULL,
   "is_read" smallint NOT NULL,
-  "is_archived" boolean DEFAULT false,
+  "is_archived" smallint DEFAULT 0,
   "date_created" timestamp with time zone DEFAULT NULL,
   "date_read" timestamp with time zone DEFAULT NULL,
-  "last_updated" timestamp with time zone DEFAULT now() NOT NULL,
+  "last_updated" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
   "class" varchar(100) DEFAULT NULL
 );
 
@@ -457,8 +457,8 @@ CREATE TABLE settings (
   force_notif smallint DEFAULT NULL,
   cron_ip varchar(255) DEFAULT NULL,
   registration smallint DEFAULT NULL,
-  join_vericode_expiry integer CHECK (join_vericode_expiry >= 0) NOT NULL,
-  reset_vericode_expiry integer CHECK (reset_vericode_expiry >= 0) NOT NULL,
+  join_vericode_expiry integer NOT NULL,
+  reset_vericode_expiry integer NOT NULL,
   admin_verify smallint NOT NULL,
   admin_verify_timeout integer NOT NULL,
   session_manager smallint NOT NULL,
@@ -494,7 +494,7 @@ CREATE TABLE updates (
   id serial primary key,
   migration varchar(15) NOT NULL,
   applied_on timestamp NOT NULL DEFAULT current_timestamp,
-  update_skipped boolean DEFAULT NULL
+  update_skipped smallint DEFAULT NULL
 );
 
 --
@@ -583,7 +583,7 @@ INSERT INTO "updates" ("id", "migration", "applied_on", "update_skipped") VALUES
 --
 
 CREATE TABLE users (
-  id serial NOT NULL PRIMARY KEY,
+  id serial PRIMARY KEY,
   permissions smallint NOT NULL,
   email varchar(155) NOT NULL,
   email_new varchar(155) DEFAULT NULL,
@@ -593,7 +593,7 @@ CREATE TABLE users (
   fname varchar(255) NOT NULL,
   lname varchar(255) NOT NULL,
   language varchar(255) DEFAULT 'en-US',
-  email_verified boolean NOT NULL DEFAULT false,
+  email_verified smallint NOT NULL DEFAULT 0,
   vericode varchar(15) DEFAULT NULL,
   vericode_expiry timestamp DEFAULT NULL,
   oauth_provider varchar(255) DEFAULT NULL,
@@ -607,19 +607,19 @@ CREATE TABLE users (
   fb_uid varchar(255) DEFAULT NULL,
   picture varchar(255) DEFAULT NULL,
   created timestamp NOT NULL,
-  protected boolean NOT NULL DEFAULT false,
-  msg_exempt boolean NOT NULL DEFAULT false,
-  dev_user boolean NOT NULL DEFAULT false,
-  msg_notification boolean NOT NULL DEFAULT true,
-  cloak_allowed boolean NOT NULL DEFAULT false,
-  oauth_tos_accepted boolean DEFAULT NULL,
-  un_changed boolean NOT NULL DEFAULT false,
-  force_pr boolean NOT NULL DEFAULT false,
+  protected smallint NOT NULL DEFAULT 0,
+  msg_exempt smallint NOT NULL DEFAULT 0,
+  dev_user smallint NOT NULL DEFAULT 0,
+  msg_notification smallint NOT NULL DEFAULT 1,
+  cloak_allowed smallint NOT NULL DEFAULT 0,
+  oauth_tos_accepted smallint DEFAULT NULL,
+  un_changed smallint NOT NULL DEFAULT 0,
+  force_pr smallint NOT NULL DEFAULT 0,
   logins integer NOT NULL DEFAULT 0,
   last_login timestamp DEFAULT NULL,
   join_date timestamp DEFAULT NULL,
   modified timestamp DEFAULT NULL,
-  active boolean DEFAULT true
+  active smallint DEFAULT 1
 );
 
 --
@@ -627,7 +627,7 @@ CREATE TABLE users (
 --
 
 INSERT INTO users (id, permissions, email, email_new, username, password, pin, fname, lname, language, email_verified, vericode, vericode_expiry, oauth_provider, oauth_uid, gender, locale, gpluslink, account_owner, account_id, account_mgr, fb_uid, picture, created, protected, msg_exempt, dev_user, msg_notification, cloak_allowed, oauth_tos_accepted, un_changed, force_pr, logins, last_login, join_date, modified, active) VALUES
-(1, 1, 'userspicephp@userspice.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'The', 'Admin', 'en-US', true, 'nlPsJDtyeqFWsS', NULL, '', '', '', '', '', 1, 0, 0, '', '', '2015-01-01 00:00:00', true, true, false, true, true, NULL, false, false, 0, '2022-12-23 07:16:27', '2022-12-25 00:00:00', '2016-01-01 00:00:00', true);
+(1, 1, 'userspicephp@userspice.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'The', 'Admin', 'en-US', 1, 'nlPsJDtyeqFWsS', NULL, '', '', '', '', '', 1, 0, 0, '', '', '2015-01-01 00:00:00', 1, 1, 0, 1, 1, NULL, 0, 0, 0, '2022-12-23 07:16:27', '2022-12-25 00:00:00', '2016-01-01 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -636,10 +636,10 @@ INSERT INTO users (id, permissions, email, email_new, username, password, pin, f
 --
 
 CREATE TABLE users_online (
-  id serial PRIMARY KEY NOT NULL,
+  id serial PRIMARY KEY,
   ip varchar(15) NOT NULL,
   "timestamp" varchar(15) NOT NULL,
-  user_id int DEFAULT NULL,
+  user_id integer DEFAULT NULL,
   session varchar(50) NOT NULL
 );
 
@@ -651,7 +651,7 @@ CREATE TABLE users_online (
 
 CREATE TABLE users_session (
   id SERIAL PRIMARY KEY,
-  user_id INT NOT NULL,
+  user_id INTEGER NOT NULL,
   hash VARCHAR(255) NOT NULL,
   uagent TEXT DEFAULT NULL
 );
@@ -664,8 +664,8 @@ CREATE TABLE users_session (
 
 CREATE TABLE user_permission_matches (
   id SERIAL PRIMARY KEY,
-  user_id INT NOT NULL,
-  permission_id INT NOT NULL
+  user_id INTEGER NOT NULL,
+  permission_id INTEGER NOT NULL
 );
 
 --
@@ -684,7 +684,7 @@ INSERT INTO user_permission_matches (id, user_id, permission_id) VALUES
 
 CREATE TABLE us_announcements (
   id SERIAL PRIMARY KEY,
-  dismissed INT NOT NULL,
+  dismissed INTEGER NOT NULL,
   link VARCHAR(255) DEFAULT NULL,
   title VARCHAR(255) DEFAULT NULL,
   message VARCHAR(255) DEFAULT NULL,
@@ -700,7 +700,7 @@ CREATE TABLE us_announcements (
 
 CREATE TABLE us_fingerprints (
   kFingerprintID SERIAL PRIMARY KEY,
-  fkUserID INT NOT NULL,
+  fkUserID INTEGER NOT NULL,
   Fingerprint VARCHAR(32) NOT NULL,
   Fingerprint_Expiry TIMESTAMP NOT NULL,
   Fingerprint_Added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -713,7 +713,7 @@ CREATE TABLE us_fingerprints (
 
 CREATE TABLE us_fingerprint_assets (
   kFingerprintAssetID SERIAL PRIMARY KEY,
-  fkFingerprintID INT NOT NULL,
+  fkFingerprintID INTEGER NOT NULL,
   IP_Address VARCHAR(255) NOT NULL,
   User_Browser VARCHAR(255) NOT NULL,
   User_OS VARCHAR(255) NOT NULL
@@ -737,7 +737,7 @@ CREATE TABLE us_forms (
 --
 
 CREATE TABLE us_form_validation (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   value VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
   params VARCHAR(255) NOT NULL
@@ -769,7 +769,7 @@ INSERT INTO us_form_validation (id, value, description, params) VALUES
 --
 
 CREATE TABLE us_form_views (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   form_name VARCHAR(255) NOT NULL,
   view_name VARCHAR(255) NOT NULL,
   fields TEXT NOT NULL
@@ -782,10 +782,10 @@ CREATE TABLE us_form_views (
 --
 
 CREATE TABLE us_ip_blacklist (
-  id serial PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   ip VARCHAR(50) NOT NULL,
-  last_user INT NOT NULL DEFAULT 0,
-  reason INT NOT NULL DEFAULT 0
+  last_user INTEGER NOT NULL DEFAULT 0,
+  reason INTEGER NOT NULL DEFAULT 0
 );
 
 -- --------------------------------------------------------
@@ -797,14 +797,14 @@ CREATE TABLE us_ip_blacklist (
 CREATE TABLE us_ip_list (
   id SERIAL PRIMARY KEY,
   ip VARCHAR(50) NOT NULL,
-  user_id INT NOT NULL,
-  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  user_id INTEGER NOT NULL,
+  "timestamp" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE OR REPLACE FUNCTION update_timestamp()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.timestamp = NOW();
+  NEW.timestamp = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -967,11 +967,11 @@ INSERT INTO us_menu_items (id, menu, type, label, link, icon_class, li_class, a_
 --
 
 CREATE TABLE us_plugins (
-  id serial PRIMARY KEY NOT NULL,
+  id serial PRIMARY KEY,
   plugin varchar(255) DEFAULT NULL,
   status varchar(255) DEFAULT NULL,
   updates text DEFAULT NULL,
-  last_check timestamp with time zone DEFAULT '2020-01-01 00:00:00'::timestamp with time zone
+  last_check timestamp with time zone DEFAULT '2020-01-01 00:00:00'
 );
 
 -- --------------------------------------------------------
@@ -1032,14 +1032,14 @@ CREATE TABLE us_user_sessions (
   UserSessionStarted timestamp without time zone NOT NULL,
   UserSessionLastUsed timestamp without time zone DEFAULT NULL,
   UserSessionLastPage varchar(255) NOT NULL,
-  UserSessionEnded boolean NOT NULL DEFAULT false,
+  UserSessionEnded smallint NOT NULL DEFAULT 0,
   UserSessionEnded_Time timestamp without time zone DEFAULT NULL
 );
 
 -- Setting the id to max + 1 when a new record is inserted
-SELECT setval('menus_id_seq', (SELECT MAX(id) FROM menus)+1);
-SELECT setval('crons_id_seq', (SELECT MAX(id) FROM crons)+1);
-SELECT setval('permissions_id_seq', (SELECT MAX(id) FROM permissions)+1);
+-- SELECT setval('menus_id_seq', (SELECT MAX(id) FROM menus)+1);
+-- SELECT setval('crons_id_seq', (SELECT MAX(id) FROM crons)+1);
+-- SELECT setval('permissions_id_seq', (SELECT MAX(id) FROM permissions)+1);
 
 --
 -- Indexes for dumped tables

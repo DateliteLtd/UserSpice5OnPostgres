@@ -36,7 +36,7 @@ if(!$db->error()) {
 
 $db->query("CREATE TABLE us_fingerprint_assets (
   kFingerprintAssetID SERIAL PRIMARY KEY,
-  fkFingerprintID INT NOT NULL,
+  fkFingerprintID INTEGER NOT NULL,
   IP_Address VARCHAR(255) NOT NULL,
   User_Browser VARCHAR(255) NOT NULL,
   User_OS VARCHAR(255) NOT NULL

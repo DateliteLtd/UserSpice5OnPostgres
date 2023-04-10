@@ -27,7 +27,7 @@ if(!$db->error()) {
   $errors[] = "Unable to insert reset_vericode_expiry to settings table, Error: ".$error;
 }
 
-$db->query("UPDATE settings SET settings.join_vericode_expiry=24,reset_vericode_expiry=15 WHERE id=1");
+$db->query("UPDATE settings SET join_vericode_expiry=24,reset_vericode_expiry=15 WHERE id=1");
 if(!$db->error()) {
   logger(1,"System Updates","Set Join and Reset Vericode Expiry");
 } else {
