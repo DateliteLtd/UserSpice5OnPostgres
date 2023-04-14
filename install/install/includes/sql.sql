@@ -801,19 +801,6 @@ CREATE TABLE us_ip_list (
   "timestamp" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE OR REPLACE FUNCTION update_timestamp()
-RETURNS TRIGGER AS $$
-BEGIN
-  NEW.timestamp = CURRENT_TIMESTAMP;
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER update_timestamp
-BEFORE UPDATE ON us_ip_list
-FOR EACH ROW
-EXECUTE FUNCTION update_timestamp();
-
 --
 -- Dumping data for table `us_ip_list`
 --
