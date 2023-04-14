@@ -8,7 +8,7 @@
 $countE=0;
 
 $db->query("ALTER TABLE users
-  ADD COLUMN password varchar(255) NULL");
+  ALTER COLUMN password varchar(255) NULL");
 if(!$db->error()) {
   logger(1,"System Updates","Allowed passwords to be NULL");
 } else {

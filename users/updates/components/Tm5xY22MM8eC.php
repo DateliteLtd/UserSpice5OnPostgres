@@ -8,7 +8,7 @@
 $countE=0;
 $db->insert('updates',['migration'=>$update]);
 
-$find = $db->query("SELECT id,label FROM menus WHERE label = ?", ["User Management"])->results();
+$find = $db->query("SELECT id,label FROM menus WHERE label = ?", array("User Management"))->results();
 foreach($find as $f){
 	$db->update('menus',$f->id,['label'=>'{{users}}']);
   if(!$db->error()) {

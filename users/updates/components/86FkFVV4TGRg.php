@@ -24,7 +24,7 @@ if(!$db->error()) {
   $errors[] = "Unable to update group_menu int columns to 11 and unsigned, Error: ".$error;
 }
 
-$db->query("ALTER TABLE users ADD COLUMN logins integer NOT NULL");
+$db->query("ALTER TABLE users ALTER COLUMN logins integer NOT NULL");
 if(!$db->error()) {
   logger(1,"System Updates","Updated users int columns to 11 and unsigned");
 } else {
