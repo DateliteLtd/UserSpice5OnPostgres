@@ -12,10 +12,10 @@ SET timezone = 'UTC';
 BEGIN;
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+-- !40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT;
+-- !40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS;
+-- !40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION;
+-- !40101 SET NAMES utf8mb4;
 
 --
 -- Database: `546_full2`
@@ -1035,234 +1035,234 @@ CREATE TABLE us_user_sessions (
 --
 -- Indexes for table `audit`
 --
-/*ALTER TABLE audit
-ADD CONSTRAINT audit_pkey PRIMARY KEY (id);
+-- ALTER TABLE audit
+-- ADD CONSTRAINT audit_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `crons`
 --
-ALTER TABLE crons
-ADD CONSTRAINT crons_pkey PRIMARY KEY (id);
+-- ALTER TABLE crons
+-- ADD CONSTRAINT crons_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `crons_logs`
 --
-ALTER TABLE crons_logs
-ADD CONSTRAINT crons_logs_pkey PRIMARY KEY (id);
+-- ALTER TABLE crons_logs
+-- ADD CONSTRAINT crons_logs_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `email`
 --
-ALTER TABLE email
-ADD CONSTRAINT email_pkey PRIMARY KEY (id);*/
+-- ALTER TABLE email
+-- ADD CONSTRAINT email_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `groups_menus`
 --
--- IDK WHAT TO DO HERE
-/*ALTER TABLE groups_menus
-ADD CONSTRAINT groups_menus_pkey PRIMARY KEY (id),
-ADD CONSTRAINT groups_menus_group_id_fkey FOREIGN KEY (group_id) REFERENCES groups (id),
-ADD CONSTRAINT groups_menus_fkey FOREIGN KEY (menu_id) REFERENCES menus (id);*/
+
+-- ALTER TABLE groups_menus
+-- ADD CONSTRAINT groups_menus_pkey PRIMARY KEY (id),
+-- ADD CONSTRAINT groups_menus_group_id_fkey FOREIGN KEY (group_id) REFERENCES groups (id),
+-- ADD CONSTRAINT groups_menus_fkey FOREIGN KEY (menu_id) REFERENCES menus (id);
 
 --
 -- Indexes for table `keys`
 --
-/*ALTER TABLE keys
-ADD CONSTRAINT keys_pkey PRIMARY KEY (id);
+-- ALTER TABLE keys
+-- ADD CONSTRAINT keys_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `logs`
 --
-ALTER TABLE logs
-ADD CONSTRAINT logs_pkey PRIMARY KEY (id);
+-- ALTER TABLE logs
+-- ADD CONSTRAINT logs_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `menus`
 --
-ALTER TABLE menus
-ADD CONSTRAINT menus_pkey PRIMARY KEY (id);
+-- ALTER TABLE menus
+-- ADD CONSTRAINT menus_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `messages`
 --
-ALTER TABLE messages
-ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
+-- ALTER TABLE messages
+-- ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `message_threads`
 --
-ALTER TABLE message_threads
-ADD CONSTRAINT message_threads_pkey PRIMARY KEY (id);
+-- ALTER TABLE message_threads
+-- ADD CONSTRAINT message_threads_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `notifications`
 --
-ALTER TABLE notifications
-ADD CONSTRAINT notifications_pkey PRIMARY KEY (id);*/
+-- ALTER TABLE notifications
+-- ADD CONSTRAINT notifications_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `pages`
 --
-/*ALTER TABLE pages
-ADD CONSTRAINT pages_pkey PRIMARY KEY (id);
+-- ALTER TABLE pages
+-- ADD CONSTRAINT pages_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `permissions`
 --
-ALTER TABLE permissions
-ADD CONSTRAINT permissions_pkey PRIMARY KEY (id);
+-- ALTER TABLE permissions
+-- ADD CONSTRAINT permissions_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `permission_page_matches`
 --
-ALTER TABLE permission_page_matches
-ADD CONSTRAINT permission_page_matches_pkey PRIMARY KEY (id);
+-- ALTER TABLE permission_page_matches
+-- ADD CONSTRAINT permission_page_matches_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `profiles`
 --
-ALTER TABLE profiles
-ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
+-- ALTER TABLE profiles
+-- ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `settings`
 --
-ALTER TABLE settings
-ADD CONSTRAINT settings_pkey PRIMARY KEY (id);
+-- ALTER TABLE settings
+-- ADD CONSTRAINT settings_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `updates`
 --
-ALTER TABLE updates
-ADD CONSTRAINT updates_pkey PRIMARY KEY (id);*/
+-- ALTER TABLE updates
+-- ADD CONSTRAINT updates_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `users`
 --
-ALTER TABLE users
+-- ALTER TABLE users
 -- ADD CONSTRAINT users_pkey PRIMARY KEY (id),
-ADD CONSTRAINT users_email_key UNIQUE (email);
+-- ADD CONSTRAINT users_email_key UNIQUE (email);
 
 --
 -- Indexes for table `users_online`
 --
-/*ALTER TABLE users_online
-ADD CONSTRAINT users_online_pkey PRIMARY KEY (id);
+-- ALTER TABLE users_online
+-- ADD CONSTRAINT users_online_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `users_session`
 --
-ALTER TABLE users_session
-ADD CONSTRAINT users_sessions_pkey PRIMARY KEY (id);
+-- ALTER TABLE users_session
+-- ADD CONSTRAINT users_sessions_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `user_permission_matches`
 --
-ALTER TABLE user_permission_matches
-ADD CONSTRAINT user_permission_matches PRIMARY KEY (id);
+-- ALTER TABLE user_permission_matches
+-- ADD CONSTRAINT user_permission_matches PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_announcements`
 --
-ALTER TABLE us_announcements
-ADD CONSTRAINT us_announcements_pkey PRIMARY KEY (id);
+-- ALTER TABLE us_announcements
+-- ADD CONSTRAINT us_announcements_pkey PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_fingerprints`
 --
-ALTER TABLE us_fingerprints
-ADD CONSTRAINT us_fingerprints_pkey PRIMARY KEY (kFingerprintID);
+-- ALTER TABLE us_fingerprints
+-- ADD CONSTRAINT us_fingerprints_pkey PRIMARY KEY (kFingerprintID);
 
 --
 -- Indexes for table `us_fingerprint_assets`
 --
-ALTER TABLE us_fingerprint_assets
-ADD CONSTRAINT us_fingerprint_assets PRIMARY KEY (kFingerprintAssetID);
+-- ALTER TABLE us_fingerprint_assets
+-- ADD CONSTRAINT us_fingerprint_assets PRIMARY KEY (kFingerprintAssetID);
 
 --
 -- Indexes for table `us_forms`
 --
-ALTER TABLE us_forms
-ADD CONSTRAINT us_forms PRIMARY KEY (id);
+-- ALTER TABLE us_forms
+-- ADD CONSTRAINT us_forms PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_form_validation`
 --
-ALTER TABLE us_form_validation
-ADD CONSTRAINT us_form_validation PRIMARY KEY (id);
+-- ALTER TABLE us_form_validation
+-- ADD CONSTRAINT us_form_validation PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_form_views`
 --
-ALTER TABLE us_form_views
-ADD CONSTRAINT us_form_views PRIMARY KEY (id);
+-- ALTER TABLE us_form_views
+-- ADD CONSTRAINT us_form_views PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_ip_blacklist`
 --
-ALTER TABLE us_ip_blacklist
-ADD CONSTRAINT us_ip_blacklist PRIMARY KEY (id);
+-- ALTER TABLE us_ip_blacklist
+-- ADD CONSTRAINT us_ip_blacklist PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_ip_list`
 --
-ALTER TABLE us_ip_list
-ADD CONSTRAINT us_ip_list PRIMARY KEY (id);
+-- ALTER TABLE us_ip_list
+-- ADD CONSTRAINT us_ip_list PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_ip_whitelist`
 --
-ALTER TABLE us_ip_whitelist
-ADD CONSTRAINT us_ip_whitelist PRIMARY KEY (id);
+-- ALTER TABLE us_ip_whitelist
+-- ADD CONSTRAINT us_ip_whitelist PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_management`
 --
-ALTER TABLE us_management
-ADD CONSTRAINT us_management PRIMARY KEY (id);
+-- ALTER TABLE us_management
+-- ADD CONSTRAINT us_management PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_menus`
 --
-ALTER TABLE `us_menus`
-  ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `us_menus`
+--  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `us_menu_items`
 --
-ALTER TABLE `us_menu_items`
-  ADD PRIMARY KEY (`id`);
+-- ALTER TABLE `us_menu_items`
+--  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `us_plugins`
 --
-ALTER TABLE us_plugins
-ADD CONSTRAINT us_plugins PRIMARY KEY (id);
+-- ALTER TABLE us_plugins
+-- ADD CONSTRAINT us_plugins PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_plugin_hooks`
 --
-ALTER TABLE us_plugin_hooks
-ADD CONSTRAINT us_plugin_hooks PRIMARY KEY (id);
+-- ALTER TABLE us_plugin_hooks
+-- ADD CONSTRAINT us_plugin_hooks PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_saas_levels`
 --
-ALTER TABLE us_saas_levels
-ADD CONSTRAINT us_saas_levels PRIMARY KEY (id);
+-- ALTER TABLE us_saas_levels
+-- ADD CONSTRAINT us_saas_levels PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_saas_orgs
 --
-ALTER TABLE us_saas_orgs
-ADD CONSTRAINT us_saas_orgs PRIMARY KEY (id);
+-- ALTER TABLE us_saas_orgs
+-- ADD CONSTRAINT us_saas_orgs PRIMARY KEY (id);
 
 --
 -- Indexes for table `us_user_sessions
 --
-ALTER TABLE us_user_sessions
-ADD CONSTRAINT us_user_sessions PRIMARY KEY (kUserSessionID);*/
+-- ALTER TABLE us_user_sessions
+-- ADD CONSTRAINT us_user_sessions PRIMARY KEY (kUserSessionID);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1271,278 +1271,282 @@ ADD CONSTRAINT us_user_sessions PRIMARY KEY (kUserSessionID);*/
 --
 -- AUTO_INCREMENT for table `audit`
 --
-/*ALTER TABLE audit
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE audit
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `crons`
 --
-ALTER TABLE crons
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 2);
+-- ALTER TABLE crons
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 2);
 
 --
 -- AUTO_INCREMENT for table `crons_logs`
 --
-ALTER TABLE crons_logs
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE crons_logs
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `email`
 --
-ALTER TABLE email
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 2);
+-- ALTER TABLE email
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 2);
 
 --
 -- AUTO_INCREMENT for table `groups_menus`
 --
-ALTER TABLE groups_menus
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 39);
+-- ALTER TABLE groups_menus
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 39);
 
 --
 -- AUTO_INCREMENT for table `keys`
 --
-ALTER TABLE keys
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE keys
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
-ALTER TABLE logs
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 9);
+-- ALTER TABLE logs
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 9);
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
-ALTER TABLE menus
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 23);
+-- ALTER TABLE menus
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 23);
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
-ALTER TABLE messages
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE messages
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `message_threads`
 --
-ALTER TABLE message_threads
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE message_threads
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
-ALTER TABLE notifications
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE notifications
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
-ALTER TABLE pages
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 90);
+-- ALTER TABLE pages
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 90);
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
-ALTER TABLE permissions
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 3);
+-- ALTER TABLE permissions
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 3);
 
 --
 -- AUTO_INCREMENT for table `permission_page_matches`
 --
-ALTER TABLE permission_page_matches
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 58);
+-- ALTER TABLE permission_page_matches
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 58);
 
 --
 -- AUTO_INCREMENT for table `profiles`
 --
-ALTER TABLE profiles
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 11);
+-- ALTER TABLE profiles
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 11);
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
-ALTER TABLE settings
-ALTER COLUMN id TYPE integer,
-ALTER COLUMN id SET NOT NULL,
-ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;*/
+-- ALTER TABLE settings
+-- ALTER COLUMN id TYPE integer,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `updates`
 --
-/*ALTER TABLE updates
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-CREATE SEQUENCE updates_id_seq;
-ALTER SEQUENCE updates_id_seq RESTART WITH 82;
+-- ALTER TABLE updates
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- CREATE SEQUENCE updates_id_seq;
+-- ALTER SEQUENCE updates_id_seq RESTART WITH 82;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE users
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE users_id_seq RESTART WITH 3;
+-- ALTER TABLE users
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE users_id_seq RESTART WITH 3;
 
 --
 -- AUTO_INCREMENT for table `users_session`
 --
-ALTER TABLE users_session
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE users_session_id_seq OWNED BY users_session.id;
+-- ALTER TABLE users_session
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE users_session_id_seq OWNED BY users_session.id;
 
 --
 -- AUTO_INCREMENT for table `user_permission_matches`
 --
-ALTER TABLE user_permission_matches
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE user_permission_matches_id_seq RESTART WITH 111;
+-- ALTER TABLE user_permission_matches
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE user_permission_matches_id_seq RESTART WITH 111;
 
 --
 -- AUTO_INCREMENT for table `us_announcements`
 --
-ALTER TABLE us_announcements
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_announcements_id_seq OWNED BY us_announcements.id;
+-- ALTER TABLE us_announcements
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_announcements_id_seq OWNED BY us_announcements.id;
 
 --
 -- AUTO_INCREMENT for table `us_fingerprints`
 --
-ALTER TABLE us_fingerprints
-ALTER COLUMN kFingerprintID SET DATA TYPE INTEGER,
-ALTER COLUMN kFingerprintID SET NOT NULL,
-ALTER COLUMN kFingerprintID ADD GENERATED ALWAYS AS IDENTITY;*/
+-- ALTER TABLE us_fingerprints
+-- ALTER COLUMN kFingerprintID SET DATA TYPE INTEGER,
+-- ALTER COLUMN kFingerprintID SET NOT NULL,
+-- ALTER COLUMN kFingerprintID ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `us_fingerprint_assets`
 --
-/*ALTER TABLE us_fingerprint_assets
-ALTER COLUMN kFingerprintAssetID SET DATA TYPE INTEGER,
-ALTER COLUMN kFingerprintAssetID SET NOT NULL,
-ALTER COLUMN kFingerprintAssetID ADD GENERATED ALWAYS AS IDENTITY;
+-- ALTER TABLE us_fingerprint_assets
+-- ALTER COLUMN kFingerprintAssetID SET DATA TYPE INTEGER,
+-- ALTER COLUMN kFingerprintAssetID SET NOT NULL,
+-- ALTER COLUMN kFingerprintAssetID ADD GENERATED ALWAYS AS IDENTITY;
 
 --
 -- AUTO_INCREMENT for table `us_forms`
 --
-ALTER TABLE us_forms
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_forms_id_seq OWNED BY us_forms.id;
+-- ALTER TABLE us_forms
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_forms_id_seq OWNED BY us_forms.id;
 
 --
 -- AUTO_INCREMENT for table `us_form_validation`
 --
-ALTER TABLE us_form_validation
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_form_validation_id_seq RESTART WITH 14;
+-- ALTER TABLE us_form_validation
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_form_validation_id_seq RESTART WITH 14;
 
 --
 -- AUTO_INCREMENT for table `us_form_views`
 --
-ALTER TABLE us_form_views
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_form_views_id_seq OWNED BY us_form_views.id;
+-- ALTER TABLE us_form_views
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_form_views_id_seq OWNED BY us_form_views.id;
 
 --
 -- AUTO_INCREMENT for table `us_ip_blacklist`
 --
-ALTER TABLE us_ip_blacklist
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_ip_blacklist_id_seq RESTART WITH 11;
+-- ALTER TABLE us_ip_blacklist
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_ip_blacklist_id_seq RESTART WITH 11;
 
 --
 -- AUTO_INCREMENT for table `us_ip_list`
 --
-ALTER TABLE us_ip_list
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_ip_list_id_seq RESTART WITH 3;
+-- ALTER TABLE us_ip_list
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_ip_list_id_seq RESTART WITH 3;
 
 --
 -- AUTO_INCREMENT for table `us_ip_whitelist`
 --
-ALTER TABLE us_ip_whitelist
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_ip_whitelist_id_seq RESTART WITH 7;
+-- ALTER TABLE us_ip_whitelist
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_ip_whitelist_id_seq RESTART WITH 7;
 
 --
 -- AUTO_INCREMENT for table `us_management`
 --
-ALTER TABLE us_management
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL,
-ALTER SEQUENCE us_management_id_seq RESTART WITH 16;
+-- ALTER TABLE us_management
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_management_id_seq RESTART WITH 16;
 
 --
 -- AUTO_INCREMENT for table `us_menus`
 --
-ALTER TABLE `us_menus`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+-- ALTER TABLE us_menus
+-- ALTER COLUMN id SET DATA TYPE integer,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_menus_id_seq RESTART WITH 3;
 
 --
 -- AUTO_INCREMENT for table `us_menu_items`
 --
-ALTER TABLE `us_menu_items`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+-- ALTER TABLE us_menu_items
+-- ALTER COLUMN id SET DATA TYPE SERIAL,
+-- ALTER COLUMN id SET NOT NULL,
+-- ALTER SEQUENCE us_menu_items_id_seq RESTART WITH 45;
 
 --
 -- AUTO_INCREMENT for table `us_plugins`
 --
-ALTER TABLE us_plugins
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL;
+-- ALTER TABLE us_plugins
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL;
 
 --
 -- AUTO_INCREMENT for table `us_plugin_hooks`
 --
-ALTER TABLE us_plugin_hooks
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL;
+-- ALTER TABLE us_plugin_hooks
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL;
 
 --
 -- AUTO_INCREMENT for table `us_saas_levels`
 --
-ALTER TABLE us_saas_levels
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL;
+-- ALTER TABLE us_saas_levels
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL;
 
 --
 -- AUTO_INCREMENT for table `us_saas_orgs`
 --
-ALTER TABLE us_saas_orgs
-ALTER COLUMN id SET DATA TYPE INTEGER,
-ALTER COLUMN id SET NOT NULL;
+-- ALTER TABLE us_saas_orgs
+-- ALTER COLUMN id SET DATA TYPE INTEGER,
+-- ALTER COLUMN id SET NOT NULL;
 
 --
 -- AUTO_INCREMENT for table `us_user_sessions`
 --
-ALTER TABLE us_user_sessions
-ALTER COLUMN kUserSessionID SET DATA TYPE INTEGER,
-ALTER COLUMN kUserSessionID SET NOT NULL;*/
+-- ALTER TABLE us_user_sessions
+-- ALTER COLUMN kUserSessionID SET DATA TYPE INTEGER,
+-- ALTER COLUMN kUserSessionID SET NOT NULL;
 
 -- SELECT setval('us_user_sessions_kusersessionid_seq', 2, true);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- !40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT ;
+-- !40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS ;
+-- !40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION;
