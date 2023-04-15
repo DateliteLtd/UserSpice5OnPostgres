@@ -96,9 +96,9 @@ $go = 0;
 					</div>
 
 					<div class="form-group row">
-						<label for="port" class="col-sm-4 control-label">Database Port (required) (Normally 3306)</label>
+						<label for="port" class="col-sm-4 control-label">Database Port (required) (Normally 5432)</label>
 						<div class="col-sm-8">
-							<input required class="form-control" type="text" name="port" value="<?php if (!empty($_POST['port'])){ print $_POST['port']; }else{ echo "3306"; } ?>" required>
+							<input required class="form-control" type="text" name="port" value="<?php if (!empty($_POST['port'])){ print $_POST['port']; }else{ echo "5432"; } ?>" required>
 						</div>
 					</div>
 
@@ -183,38 +183,38 @@ $go = 0;
 
 				if (!empty($_POST['test'])) {
 					try {
-						$dsn = "mysql:host=$dbh;charset=utf8";
-						$opt = array(
-							PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-							PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-						);
-						$pdo = new PDO($dsn, $dbu, $dbp, $opt) or die('could not connect');
-						$pdo->exec("CREATE DATABASE `$dbn`;
-							CREATE USER '$dbu'@'$dbh' IDENTIFIED BY '$dbp';
-							GRANT ALL ON `$dbn`.* TO '$dbu'@'$dbh';
-							FLUSH PRIVILEGES;")
-							or die(print_r($pdo->errorInfo(), true));
+						// Establish a connection
+						$pdo = new PDO("pgsql:host=$dbh;port=$port;dbname=$dbn", $dbu, $dbp);
+						$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+						$sql = "CREATE DATABASE $dbn";
+						$pdo->exec($sql);
+
+						// Create a new user
+						$sql = "CREATE USER $dbu WITH ENCRYPTED PASSWORD '$dbp'";
+						$pdo->exec($sql);
+
+						// Grant all privileges on the database to the user
+						$sql = "GRANT ALL PRIVILEGES ON DATABASE $dbn TO $dbu";
+						$pdo->exec($sql);
 
 						} catch (PDOException $e) {
 							//I'm commenting this out because the script tries create a user and will fail if the user exists, but that is fine. We'll  stick with the if don't see a bunch of errors
 						}
 					$success = true;
 					try {
-						$dsn = "mysql:host=$dbh;charset=utf8";
-						$opt = array(
-							PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-							PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-						);
-						$pdo = new PDO($dsn, $dbu, $dbp, $opt) or die('could not connect');
+						// Establish a connection to the database
+						$pdo = new PDO("pgsql:host=$dbh;port=$port;dbname=$dbn", $dbu, $dbp);
+						$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					} catch (PDOException $e) {
 						$success = false;
 						echo '<div class="alert alert-danger" role="alert">Database connection <strong>unsuccessful</strong>! Please try again.</div>';
 					}
 
 					if ($success) {
-						$link = @mysqli_connect($dbh, $dbu, $dbp, $dbn);
+						$link = pg_connect("host=$dbh user=$dbu password=$dbp dbname=$dbn");
 						if (!$link) {
-							$dbError =  mysqli_connect_errno();
+							$dbError =  pg_last_error();
 							if($dbError == '1049'){?>
 								<form class="" action="" method="post">
 									<input type="hidden" name="test" value="1">
@@ -230,8 +230,8 @@ $go = 0;
 										<?php }else{
 											echo '<div class="alert alert-warning" role="alert">Database connection <strong>partially successful</strong>! Please see the errors below and make corrections as necessary.</div>';
 											echo "Error: Unable to connect to MySQL." . PHP_EOL;
-											echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-											echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+											echo "Debugging errno: " . pg_last_error() . PHP_EOL;
+											echo "Debugging error: " . pg_last_error() . PHP_EOL;
 										}
 
 									}else{
@@ -255,7 +255,7 @@ $go = 0;
 											if (substr(trim($line), -1, 1) == ';')
 											{
 												// Perform the query
-												mysqli_query($link,$templine) or print('<div class="alert alert-danger" role="alert">Error performing query:<br><code>' . $templine . '</code></div>');
+												pg_query($link,$templine) or print('<div class="alert alert-danger" role="alert">Error performing query:<br><code>' . $templine . '</code></div>');
 												// Reset temp variable to empty
 												$templine = '';
 											}

@@ -100,10 +100,10 @@ include "../users/includes/user_spice_ver.php";
                 </tr>
                 <tr>
                     <td>
-                        MySQLi support
+                        PostgreSQL support
                     </td>
                     <td class="font-weight-bold">
-                        <?php if (function_exists('mysqli_connect')) {
+                        <?php if (function_exists('pg_connect')) {
                             echo '<span class="text-success">Available</span>';
                             $errors = 0;
                         } else {
