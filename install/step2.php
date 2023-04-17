@@ -185,21 +185,18 @@ $go = 0;
 					try {
 						// Establish a connection
 						$pdo = new PDO("pgsql:host=$dbh;port=$port;dbname=$dbn", $dbu, $dbp);
-						$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-						$sql = "CREATE DATABASE $dbn";
-						$pdo->exec($sql);
-
-						// Create a new user
-						$sql = "CREATE USER $dbu WITH ENCRYPTED PASSWORD '$dbp'";
-						$pdo->exec($sql);
-
-						// Grant all privileges on the database to the user
-						$sql = "GRANT ALL PRIVILEGES ON DATABASE $dbn TO $dbu";
-						$pdo->exec($sql);
 
 						} catch (PDOException $e) {
-							//I'm commenting this out because the script tries create a user and will fail if the user exists, but that is fine. We'll  stick with the if don't see a bunch of errors
+							// Could not connect to the DB. Let's try connecting to the default postgres DB and create the specified one.
+							try {
+								$pdo = new PDO("pgsql:host=$dbh;port=$port;dbname=postgres", $dbu, $dbp);
+								$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+								$sql = "CREATE DATABASE $dbn";
+								$pdo->exec($sql);
+							} catch (PDOException $e) {
+								//I'm commenting this out because we will fail at the next connection attempt if we reach this line.
+							}
 						}
 					$success = true;
 					try {
@@ -212,7 +209,7 @@ $go = 0;
 					}
 
 					if ($success) {
-						$link = pg_connect("host=$dbh user=$dbu password=$dbp dbname=$dbn");
+						$link = pg_connect("host=$dbh port=$port user=$dbu password=$dbp dbname=$dbn");
 						if (!$link) {
 							$dbError =  pg_last_error();
 							if($dbError == '1049'){?>
