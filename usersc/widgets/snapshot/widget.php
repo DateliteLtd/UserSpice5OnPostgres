@@ -35,7 +35,7 @@
           <tr>
             <?php $dataB = $db->query("select version()")->results(true);?>
             <td>Database Version</td>
-            <td class="text-end"><span class=""><?=$dataB[0]["version()"];?></span></td>
+            <td class="text-end"><span class=""><?=$dataB[0]["version"];?></span></td>
           </tr>
 
           <tr>
