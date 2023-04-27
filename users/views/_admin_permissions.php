@@ -145,16 +145,19 @@ $userCount = $db->query("SELECT id FROM users")->count();
   <div class="col-12 col-md-6">
     <h5>Manage the Permission Level</h5>
     <?php
+    if (empty($manage)) {
+      $manage = 0;
+    }
     $q = $db->query("SELECT * FROM permissions WHERE id = ?", [$manage]);
     $c = $q->count();
     if ($c > 0) {
       $perm = $q->first();
-      $usersQ = $db->query("SELECT u.id,u.fname, u.lname, u.email,
-            CASE WHEN p.permission_id is null THEN 0 ELSE 1 END AS hasPerm
-            FROM users AS u
-            LEFT JOIN user_permission_matches AS p ON p.user_id = u.id AND p.permission_id = ?
-            GROUP BY u.id
-            ", [$manage]);
+      $usersQ = $db->query("SELECT u.id, u.fname, u.lname, u.email,
+      CASE WHEN p.permission_id is null THEN 0 ELSE 1 END AS hasPerm
+      FROM users AS u
+      LEFT JOIN user_permission_matches AS p ON p.user_id = u.id AND p.permission_id = ?
+      GROUP BY u.id, hasPerm
+        ", [$manage]);
 
       $usersC = $usersQ->count();
       if ($usersC <= 5000) {
@@ -209,7 +212,7 @@ $userCount = $db->query("SELECT id FROM users")->count();
                   <tbody>
                     <?php
                     foreach ($users as $u) {
-                      if ($u->hasPerm != 1) {
+                      if ($u->hasperm != 1) {
                         continue;
                       } ?>
                       <tr>
@@ -243,7 +246,7 @@ $userCount = $db->query("SELECT id FROM users")->count();
                   <tbody>
                     <?php
                     foreach ($users as $u) {
-                      if ($u->hasPerm != 0) {
+                      if ($u->hasperm != 0) {
                         continue;
                       } ?>
                       <tr>
