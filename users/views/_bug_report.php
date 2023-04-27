@@ -19,7 +19,7 @@ if (!empty($_POST) && $settings->spice_api != '') {
   $data = array(
     'key' => $settings->spice_api,
     'us' => Input::sanitize($user_spice_ver),
-    'db' => Input::sanitize($dataB[0]["version()"]),
+    'db' => Input::sanitize($dataB[0]["version"]),
     'os' => Input::sanitize(php_uname('s') . "-" . php_uname('v')),
     'sw' => Input::sanitize($_SERVER['SERVER_SOFTWARE']),
     'brief' => Input::get('brief'),
@@ -97,7 +97,7 @@ if ($settings->spice_api != '') {
     <?php } ?>
     <h3 class="mt-3">System Report</h3>
     <strong>UserSpice Version:</strong> <?= $user_spice_ver ?><br>
-    <strong>DB Version:</strong> <?= $dataB[0]["version()"]; ?><br>
+    <strong>DB Version:</strong> <?= $dataB[0]["version"]; ?><br>
     <strong>OS Info:</strong> <?= php_uname('s'); ?>-<?= php_uname('v'); ?></br>
     <strong>Software Info:</strong> <?= $_SERVER['SERVER_SOFTWARE'] ?>
   </div>
