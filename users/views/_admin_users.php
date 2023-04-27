@@ -101,6 +101,9 @@ if (!empty($_POST)) {
           'oauth_tos_accepted' => true,
           'language' => $newLang,
           'active' => 1,
+          'gender' => '',
+          'locale' => '',
+          'created' => date("Y-m-d H:i:s"),
         ];
 
         $db->insert('users', $fields);
@@ -147,12 +150,12 @@ $showAllUsers = Input::get('showAllUsers');
 if ($showAllUsers == 1) {
   if ($uCount < $maxUsers) {
     $userData = $db->query("SELECT
-      u.*,
-      group_concat(p.name SEPARATOR ', ') AS perms
-      FROM users AS u
-      JOIN user_permission_matches AS upm ON u.id = upm.user_id
-      LEFT OUTER JOIN permissions AS p ON p.id = upm.permission_id
-      GROUP BY u.id
+    u.*,
+    string_agg(p.name, ', ') AS perms
+    FROM users AS u
+    JOIN user_permission_matches AS upm ON u.id = upm.user_id
+    LEFT OUTER JOIN permissions AS p ON p.id = upm.permission_id
+    GROUP BY u.id  
       ")->results();
   } else {
     $userData = fetchAllUsers('permissions DESC,id', false, true);
@@ -161,7 +164,7 @@ if ($showAllUsers == 1) {
   if ($uCount < $maxUsers) {
     $userData = $db->query("SELECT
       u.*,
-      group_concat(p.name SEPARATOR ', ') AS perms
+      string_agg(p.name, ', ') AS perms
       FROM users AS u
       JOIN user_permission_matches AS upm ON u.id = upm.user_id
       LEFT OUTER JOIN permissions AS p ON p.id = upm.permission_id
