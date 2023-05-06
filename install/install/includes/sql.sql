@@ -636,7 +636,7 @@ INSERT INTO users (id, permissions, email, email_new, username, password, pin, f
 --
 
 CREATE TABLE users_online (
-  id serial PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
   ip varchar(15) NOT NULL,
   "timestamp" varchar(15) NOT NULL,
   user_id integer DEFAULT NULL,
@@ -921,31 +921,31 @@ INSERT INTO us_menu_items (id, menu, type, label, link, icon_class, li_class, a_
 (17, 1, 'link', '{{MENU_LOGOUT}}', 'users/logout.php', 'fa fa-sign-out', NULL, NULL, '_self', 1, 11, 0, '[2,1]'),
 (18, 1, 'link', '{{SIGNIN_FORGOTPASS}}', 'users/forgot_password.php', 'fa fa-wrench', NULL, NULL, '_self', 3, 1, 0, '[0]'),
 (19, 1, 'link', '{{VER_RESEND}}', 'users/verify_resend.php', 'fa fa-exclamation-triangle', NULL, NULL, '_self', 3, 99999, 0, '[0]'),
-(20, 2, 'link', 'User Manager', 'users/admin.php?view=users', 'fa fa-user', '', '', '_self', 26, 1, 0, '[\"2\"]'),
-(21, 2, 'link', 'Spice Shaker', 'users/admin.php?view=spice', 'fa fa-user-secret', '', '', '_self', 0, 2, 0, '[\"2\"]'),
-(22, 2, 'dropdown', 'Tools', '', 'fa fa-wrench', '', '', '_self', 0, 3, 0, '[\"2\"]'),
-(23, 2, 'link', 'Bug Report', 'users/admin.php?view=bugs', 'fa fa-bug', '', '', '_self', 26, 2, 0, '[\"2\"]'),
-(24, 2, 'link', 'IP Manager', 'users/admin.php?view=ip', 'fa fa-warning', '', '', '_self', 26, 3, 0, '[\"0\"]'),
-(25, 2, 'link', 'Cron Jobs', 'users/admin.php?view=cron', 'fa fa-terminal', '', '', '_self', 26, 4, 0, '[\"2\"]'),
-(26, 2, 'link', 'Security Logs', 'users/admin.php?view=security_logs', 'fa fa-lock', '', '', '_self', 26, 5, 0, '[\"2\"]'),
-(27, 2, 'link', 'System Logs', 'users/admin.php?view=logs', 'fa fa-list-ol', '', '', '_self', 26, 6, 0, '[\"2\"]'),
-(28, 2, 'link', 'Templates', 'users/admin.php?view=templates', 'fa fa-eye', '', '', '_self', 26, 7, 0, '[\"2\"]'),
-(29, 2, 'link', 'Updates', 'users/admin.php?view=updates', 'fa fa-arrow-circle-o-up', '', '', '_self', 26, 8, 0, '[\"2\"]'),
-(30, 2, 'dropdown', 'Settings', '', 'fa fa-gear', '', '', '_self', 0, 4, 0, '[\"2\"]'),
-(31, 2, 'link', 'General', 'users/admin.php?view=general', 'fa fa-check', '', '', '_self', 34, 2, 0, '[\"2\"]'),
-(32, 2, 'link', 'Registration', 'admin.php?view=reg', 'fa fa-users', '', '', '_self', 34, 3, 0, '[\"2\"]'),
-(33, 2, 'link', 'Email', 'users/admin.php?view=email', 'fa fa-envelope', '', '', '_self', 34, 4, 0, '[\"2\"]'),
-(34, 2, 'link', 'Navigation (Classic)', 'users/admin.php?view=nav', 'fa fa-list-alt', '', '', '_self', 34, 5, 0, '[\"2\"]'),
-(35, 2, 'link', 'UltraMenu', 'users/admin.php?view=menus', 'fa fa-rocket', '', '', '_self', 34, 6, 0, '[\"2\"]'),
-(36, 2, 'link', 'Dashboard Access', 'users/admin.php?view=access', 'fa fa-file-code-o', '', '', '_self', 34, 7, 0, '[\"2\"]'),
-(37, 2, 'link', 'Page Manager', 'users/admin.php?view=pages', 'fa fa-file', '', '', '_self', 26, 9, 0, '[\"2\"]'),
-(38, 2, 'link', 'Permissions', 'users/admin.php?view=permissions', 'fa fa-unlock-alt', '', '', '_self', 26, 10, 0, '[\"2\"]'),
-(39, 2, 'dropdown', 'Plugins', '#', 'fa fa-plug', '', '', '_self', 0, 5, 0, '[\"2\"]'),
-(40, 2, 'snippet', 'All Plugins', 'users/includes/menu_hooks/plugins.php', '', '', '', '_self', 43, 2, 0, '[\"2\"]'),
-(41, 2, 'link', 'Plugin Manager', 'users/admin.php?view=plugins', 'fa fa-puzzle-piece', '', '', '_self', 43, 1, 0, '[\"2\"]'),
-(42, 2, 'link', 'Home', '#', 'fa fa-home', '', '', '_self', 0, 1, 0, '[\"2\"]'),
-(43, 2, 'link', 'Admin Dashboard', 'users/admin.php', 'fa fa-cogs', '', '', '_self', 34, 1, 0, '[\"2\"]'),
-(44, 2, 'link', 'Dashboard', 'users/admin.php', 'fa-solid fa-desktop', '', '', '_self', 0, 1, 0, '[\"2\"]');
+(20, 2, 'link', 'User Manager', 'users/admin.php?view=users', 'fa fa-user', '', '', '_self', 26, 1, 0, '["2"]'),
+(21, 2, 'link', 'Spice Shaker', 'users/admin.php?view=spice', 'fa fa-user-secret', '', '', '_self', 0, 2, 0, '["2"]'),
+(22, 2, 'dropdown', 'Tools', '', 'fa fa-wrench', '', '', '_self', 0, 3, 0, '["2"]'),
+(23, 2, 'link', 'Bug Report', 'users/admin.php?view=bugs', 'fa fa-bug', '', '', '_self', 26, 2, 0, '["2"]'),
+(24, 2, 'link', 'IP Manager', 'users/admin.php?view=ip', 'fa fa-warning', '', '', '_self', 26, 3, 0, '["0"]'),
+(25, 2, 'link', 'Cron Jobs', 'users/admin.php?view=cron', 'fa fa-terminal', '', '', '_self', 26, 4, 0, '["2"]'),
+(26, 2, 'link', 'Security Logs', 'users/admin.php?view=security_logs', 'fa fa-lock', '', '', '_self', 26, 5, 0, '["2"]'),
+(27, 2, 'link', 'System Logs', 'users/admin.php?view=logs', 'fa fa-list-ol', '', '', '_self', 26, 6, 0, '["2"]'),
+(28, 2, 'link', 'Templates', 'users/admin.php?view=templates', 'fa fa-eye', '', '', '_self', 26, 7, 0, '["2"]'),
+(29, 2, 'link', 'Updates', 'users/admin.php?view=updates', 'fa fa-arrow-circle-o-up', '', '', '_self', 26, 8, 0, '["2"]'),
+(30, 2, 'dropdown', 'Settings', '', 'fa fa-gear', '', '', '_self', 0, 4, 0, '["2"]'),
+(31, 2, 'link', 'General', 'users/admin.php?view=general', 'fa fa-check', '', '', '_self', 34, 2, 0, '["2"]'),
+(32, 2, 'link', 'Registration', 'admin.php?view=reg', 'fa fa-users', '', '', '_self', 34, 3, 0, '["2"]'),
+(33, 2, 'link', 'Email', 'users/admin.php?view=email', 'fa fa-envelope', '', '', '_self', 34, 4, 0, '["2"]'),
+(34, 2, 'link', 'Navigation (Classic)', 'users/admin.php?view=nav', 'fa fa-list-alt', '', '', '_self', 34, 5, 0, '["2"]'),
+(35, 2, 'link', 'UltraMenu', 'users/admin.php?view=menus', 'fa fa-rocket', '', '', '_self', 34, 6, 0, '["2"]'),
+(36, 2, 'link', 'Dashboard Access', 'users/admin.php?view=access', 'fa fa-file-code-o', '', '', '_self', 34, 7, 0, '["2"]'),
+(37, 2, 'link', 'Page Manager', 'users/admin.php?view=pages', 'fa fa-file', '', '', '_self', 26, 9, 0, '["2"]'),
+(38, 2, 'link', 'Permissions', 'users/admin.php?view=permissions', 'fa fa-unlock-alt', '', '', '_self', 26, 10, 0, '["2"]'),
+(39, 2, 'dropdown', 'Plugins', '#', 'fa fa-plug', '', '', '_self', 0, 5, 0, '["2"]'),
+(40, 2, 'snippet', 'All Plugins', 'users/includes/menu_hooks/plugins.php', '', '', '', '_self', 43, 2, 0, '["2"]'),
+(41, 2, 'link', 'Plugin Manager', 'users/admin.php?view=plugins', 'fa fa-puzzle-piece', '', '', '_self', 43, 1, 0, '["2"]'),
+(42, 2, 'link', 'Home', '#', 'fa fa-home', '', '', '_self', 0, 1, 0, '["2"]'),
+(43, 2, 'link', 'Admin Dashboard', 'users/admin.php', 'fa fa-cogs', '', '', '_self', 34, 1, 0, '["2"]'),
+(44, 2, 'link', 'Dashboard', 'users/admin.php', 'fa-solid fa-desktop', '', '', '_self', 0, 1, 0, '["2"]');
 
 -- --------------------------------------------------------
 
@@ -1023,532 +1023,64 @@ CREATE TABLE us_user_sessions (
   UserSessionEnded_Time timestamp without time zone DEFAULT NULL
 );
 
--- Setting the id to max + 1 when a new record is inserted
--- SELECT setval('menus_id_seq', (SELECT MAX(id) FROM menus)+1);
--- SELECT setval('crons_id_seq', (SELECT MAX(id) FROM crons)+1);
--- SELECT setval('permissions_id_seq', (SELECT MAX(id) FROM permissions)+1);
-
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `audit`
---
--- ALTER TABLE audit
--- ADD CONSTRAINT audit_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `crons`
---
--- ALTER TABLE crons
--- ADD CONSTRAINT crons_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `crons_logs`
---
--- ALTER TABLE crons_logs
--- ADD CONSTRAINT crons_logs_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `email`
---
--- ALTER TABLE email
--- ADD CONSTRAINT email_pkey PRIMARY KEY (id);
-
---
 -- Indexes for table `groups_menus`
 --
-
--- ALTER TABLE groups_menus
--- ADD CONSTRAINT groups_menus_pkey PRIMARY KEY (id),
--- ADD CONSTRAINT groups_menus_group_id_fkey FOREIGN KEY (group_id) REFERENCES groups (id),
--- ADD CONSTRAINT groups_menus_fkey FOREIGN KEY (menu_id) REFERENCES menus (id);
-
---
--- Indexes for table `keys`
---
--- ALTER TABLE keys
--- ADD CONSTRAINT keys_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `logs`
---
--- ALTER TABLE logs
--- ADD CONSTRAINT logs_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `menus`
---
--- ALTER TABLE menus
--- ADD CONSTRAINT menus_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `messages`
---
--- ALTER TABLE messages
--- ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `message_threads`
---
--- ALTER TABLE message_threads
--- ADD CONSTRAINT message_threads_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `notifications`
---
--- ALTER TABLE notifications
--- ADD CONSTRAINT notifications_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `pages`
---
--- ALTER TABLE pages
--- ADD CONSTRAINT pages_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `permissions`
---
--- ALTER TABLE permissions
--- ADD CONSTRAINT permissions_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `permission_page_matches`
---
--- ALTER TABLE permission_page_matches
--- ADD CONSTRAINT permission_page_matches_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `profiles`
---
--- ALTER TABLE profiles
--- ADD CONSTRAINT profiles_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `settings`
---
--- ALTER TABLE settings
--- ADD CONSTRAINT settings_pkey PRIMARY KEY (id);
-
---
--- Indexes for table `updates`
---
--- ALTER TABLE updates
--- ADD CONSTRAINT updates_pkey PRIMARY KEY (id);
+CREATE INDEX group_idx ON groups_menus (group_id);
+CREATE INDEX menu_idx ON groups_menus (menu_id);
 
 --
 -- Indexes for table `users`
 --
--- ALTER TABLE users
--- ADD CONSTRAINT users_pkey PRIMARY KEY (id),
--- ADD CONSTRAINT users_email_key UNIQUE (email);
+CREATE INDEX email_idx ON users USING BTREE (email);
 
 --
--- Indexes for table `users_online`
+-- SEQUENCE RESTART for tables
 --
--- ALTER TABLE users_online
--- ADD CONSTRAINT users_online_pkey PRIMARY KEY (id);
+ALTER SEQUENCE crons_id_seq RESTART WITH 2;
 
---
--- Indexes for table `users_session`
---
--- ALTER TABLE users_session
--- ADD CONSTRAINT users_sessions_pkey PRIMARY KEY (id);
+ALTER SEQUENCE email_id_seq RESTART WITH 2;
 
---
--- Indexes for table `user_permission_matches`
---
--- ALTER TABLE user_permission_matches
--- ADD CONSTRAINT user_permission_matches PRIMARY KEY (id);
+ALTER SEQUENCE groups_menus_id_seq RESTART WITH 39;
 
---
--- Indexes for table `us_announcements`
---
--- ALTER TABLE us_announcements
--- ADD CONSTRAINT us_announcements_pkey PRIMARY KEY (id);
+ALTER SEQUENCE logs_id_seq RESTART WITH 9;
 
---
--- Indexes for table `us_fingerprints`
---
--- ALTER TABLE us_fingerprints
--- ADD CONSTRAINT us_fingerprints_pkey PRIMARY KEY (kFingerprintID);
+ALTER SEQUENCE menus_id_seq RESTART WITH 23;
 
---
--- Indexes for table `us_fingerprint_assets`
---
--- ALTER TABLE us_fingerprint_assets
--- ADD CONSTRAINT us_fingerprint_assets PRIMARY KEY (kFingerprintAssetID);
+ALTER SEQUENCE pages_id_seq RESTART WITH 91;
 
---
--- Indexes for table `us_forms`
---
--- ALTER TABLE us_forms
--- ADD CONSTRAINT us_forms PRIMARY KEY (id);
+ALTER SEQUENCE permissions_id_seq RESTART WITH 3;
 
---
--- Indexes for table `us_form_validation`
---
--- ALTER TABLE us_form_validation
--- ADD CONSTRAINT us_form_validation PRIMARY KEY (id);
+ALTER SEQUENCE permission_page_matches_id_seq RESTART WITH 58;
 
---
--- Indexes for table `us_form_views`
---
--- ALTER TABLE us_form_views
--- ADD CONSTRAINT us_form_views PRIMARY KEY (id);
+ALTER SEQUENCE profiles_id_seq RESTART WITH 11;
 
---
--- Indexes for table `us_ip_blacklist`
---
--- ALTER TABLE us_ip_blacklist
--- ADD CONSTRAINT us_ip_blacklist PRIMARY KEY (id);
+ALTER SEQUENCE settings_id_seq RESTART WITH 2;
 
---
--- Indexes for table `us_ip_list`
---
--- ALTER TABLE us_ip_list
--- ADD CONSTRAINT us_ip_list PRIMARY KEY (id);
+ALTER SEQUENCE updates_id_seq RESTART WITH 88;
 
---
--- Indexes for table `us_ip_whitelist`
---
--- ALTER TABLE us_ip_whitelist
--- ADD CONSTRAINT us_ip_whitelist PRIMARY KEY (id);
+ALTER SEQUENCE users_id_seq RESTART WITH 3;
 
---
--- Indexes for table `us_management`
---
--- ALTER TABLE us_management
--- ADD CONSTRAINT us_management PRIMARY KEY (id);
+ALTER SEQUENCE user_permission_matches_id_seq RESTART WITH 111;
 
---
--- Indexes for table `us_menus`
---
--- ALTER TABLE `us_menus`
---  ADD PRIMARY KEY (`id`);
+ALTER SEQUENCE us_form_validation_id_seq RESTART WITH 14;
 
---
--- Indexes for table `us_menu_items`
---
--- ALTER TABLE `us_menu_items`
---  ADD PRIMARY KEY (`id`);
+ALTER SEQUENCE us_ip_blacklist_id_seq RESTART WITH 11;
 
---
--- Indexes for table `us_plugins`
---
--- ALTER TABLE us_plugins
--- ADD CONSTRAINT us_plugins PRIMARY KEY (id);
+ALTER SEQUENCE us_ip_list_id_seq RESTART WITH 3;
 
---
--- Indexes for table `us_plugin_hooks`
---
--- ALTER TABLE us_plugin_hooks
--- ADD CONSTRAINT us_plugin_hooks PRIMARY KEY (id);
+ALTER SEQUENCE us_ip_whitelist_id_seq RESTART WITH 7;
 
---
--- Indexes for table `us_saas_levels`
---
--- ALTER TABLE us_saas_levels
--- ADD CONSTRAINT us_saas_levels PRIMARY KEY (id);
+ALTER SEQUENCE us_management_id_seq RESTART WITH 18;
 
---
--- Indexes for table `us_saas_orgs
---
--- ALTER TABLE us_saas_orgs
--- ADD CONSTRAINT us_saas_orgs PRIMARY KEY (id);
+ALTER SEQUENCE us_menus_id_seq RESTART WITH 3;
 
---
--- Indexes for table `us_user_sessions
---
--- ALTER TABLE us_user_sessions
--- ADD CONSTRAINT us_user_sessions PRIMARY KEY (kUserSessionID);
+ALTER SEQUENCE us_menu_items_id_seq RESTART WITH 45;
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `audit`
---
--- ALTER TABLE audit
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `crons`
---
--- ALTER TABLE crons
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 2);
-
---
--- AUTO_INCREMENT for table `crons_logs`
---
--- ALTER TABLE crons_logs
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `email`
---
--- ALTER TABLE email
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 2);
-
---
--- AUTO_INCREMENT for table `groups_menus`
---
--- ALTER TABLE groups_menus
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 39);
-
---
--- AUTO_INCREMENT for table `keys`
---
--- ALTER TABLE keys
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `logs`
---
--- ALTER TABLE logs
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 9);
-
---
--- AUTO_INCREMENT for table `menus`
---
--- ALTER TABLE menus
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (START WITH 23);
-
---
--- AUTO_INCREMENT for table `messages`
---
--- ALTER TABLE messages
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `message_threads`
---
--- ALTER TABLE message_threads
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `notifications`
---
--- ALTER TABLE notifications
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `pages`
---
--- ALTER TABLE pages
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 90);
-
---
--- AUTO_INCREMENT for table `permissions`
---
--- ALTER TABLE permissions
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 3);
-
---
--- AUTO_INCREMENT for table `permission_page_matches`
---
--- ALTER TABLE permission_page_matches
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 58);
-
---
--- AUTO_INCREMENT for table `profiles`
---
--- ALTER TABLE profiles
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (INCREMENT 1 START 11);
-
---
--- AUTO_INCREMENT for table `settings`
---
--- ALTER TABLE settings
--- ALTER COLUMN id TYPE integer,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `updates`
---
--- ALTER TABLE updates
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- CREATE SEQUENCE updates_id_seq;
--- ALTER SEQUENCE updates_id_seq RESTART WITH 82;
-
---
--- AUTO_INCREMENT for table `users`
---
--- ALTER TABLE users
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE users_id_seq RESTART WITH 3;
-
---
--- AUTO_INCREMENT for table `users_session`
---
--- ALTER TABLE users_session
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE users_session_id_seq OWNED BY users_session.id;
-
---
--- AUTO_INCREMENT for table `user_permission_matches`
---
--- ALTER TABLE user_permission_matches
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE user_permission_matches_id_seq RESTART WITH 111;
-
---
--- AUTO_INCREMENT for table `us_announcements`
---
--- ALTER TABLE us_announcements
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_announcements_id_seq OWNED BY us_announcements.id;
-
---
--- AUTO_INCREMENT for table `us_fingerprints`
---
--- ALTER TABLE us_fingerprints
--- ALTER COLUMN kFingerprintID SET DATA TYPE INTEGER,
--- ALTER COLUMN kFingerprintID SET NOT NULL,
--- ALTER COLUMN kFingerprintID ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `us_fingerprint_assets`
---
--- ALTER TABLE us_fingerprint_assets
--- ALTER COLUMN kFingerprintAssetID SET DATA TYPE INTEGER,
--- ALTER COLUMN kFingerprintAssetID SET NOT NULL,
--- ALTER COLUMN kFingerprintAssetID ADD GENERATED ALWAYS AS IDENTITY;
-
---
--- AUTO_INCREMENT for table `us_forms`
---
--- ALTER TABLE us_forms
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_forms_id_seq OWNED BY us_forms.id;
-
---
--- AUTO_INCREMENT for table `us_form_validation`
---
--- ALTER TABLE us_form_validation
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_form_validation_id_seq RESTART WITH 14;
-
---
--- AUTO_INCREMENT for table `us_form_views`
---
--- ALTER TABLE us_form_views
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_form_views_id_seq OWNED BY us_form_views.id;
-
---
--- AUTO_INCREMENT for table `us_ip_blacklist`
---
--- ALTER TABLE us_ip_blacklist
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_ip_blacklist_id_seq RESTART WITH 11;
-
---
--- AUTO_INCREMENT for table `us_ip_list`
---
--- ALTER TABLE us_ip_list
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_ip_list_id_seq RESTART WITH 3;
-
---
--- AUTO_INCREMENT for table `us_ip_whitelist`
---
--- ALTER TABLE us_ip_whitelist
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_ip_whitelist_id_seq RESTART WITH 7;
-
---
--- AUTO_INCREMENT for table `us_management`
---
--- ALTER TABLE us_management
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_management_id_seq RESTART WITH 16;
-
---
--- AUTO_INCREMENT for table `us_menus`
---
--- ALTER TABLE us_menus
--- ALTER COLUMN id SET DATA TYPE integer,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_menus_id_seq RESTART WITH 3;
-
---
--- AUTO_INCREMENT for table `us_menu_items`
---
--- ALTER TABLE us_menu_items
--- ALTER COLUMN id SET DATA TYPE SERIAL,
--- ALTER COLUMN id SET NOT NULL,
--- ALTER SEQUENCE us_menu_items_id_seq RESTART WITH 45;
-
---
--- AUTO_INCREMENT for table `us_plugins`
---
--- ALTER TABLE us_plugins
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL;
-
---
--- AUTO_INCREMENT for table `us_plugin_hooks`
---
--- ALTER TABLE us_plugin_hooks
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL;
-
---
--- AUTO_INCREMENT for table `us_saas_levels`
---
--- ALTER TABLE us_saas_levels
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL;
-
---
--- AUTO_INCREMENT for table `us_saas_orgs`
---
--- ALTER TABLE us_saas_orgs
--- ALTER COLUMN id SET DATA TYPE INTEGER,
--- ALTER COLUMN id SET NOT NULL;
-
---
--- AUTO_INCREMENT for table `us_user_sessions`
---
--- ALTER TABLE us_user_sessions
--- ALTER COLUMN kUserSessionID SET DATA TYPE INTEGER,
--- ALTER COLUMN kUserSessionID SET NOT NULL;
-
--- SELECT setval('us_user_sessions_kusersessionid_seq', 2, true);
-
--- !40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT ;
--- !40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS ;
--- !40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION;
+ALTER SEQUENCE us_user_sessions_kusersessionid_seq RESTART WITH 2;
 
 COMMIT;
