@@ -120,10 +120,19 @@ class DB {
 					}
 					$this->_count = $this->_query->rowCount();
                     if (preg_match('/^INSERT INTO (\w+)/i', $sql, $matches)) {
-						$tableName = $matches[1];
-						// Determine the sequence name based on the table name
-						$sequenceName = $tableName . '_id_seq';
-						$this->_lastId = $this->_pdo->lastInsertId($sequenceName);
+						// Try parsing the returned id
+						$row = $this->first();
+						if (isset($row->id)) {
+							$this->_lastId = intval($row->id);
+						} else {
+							$tableName = $matches[1];
+							// Determine the sequence name based on the table name
+							//NOTE: PostgreSQL sequence increments are non-transactional -> there is no guarantee that lastId will be correct
+							$sequenceName = $tableName . '_id_seq';
+							$this->_lastId = $this->_pdo->lastInsertId($sequenceName);
+						}
+					} else {
+						$this->_lastId = 0;
 					}
 				}else{
 					throw new Exception("db error");
@@ -304,6 +313,8 @@ class DB {
                 $sql = rtrim($sql, ',');
             }
         }
+
+		$sql .= " RETURNING id";
 
         return !$this->query($sql, $values)->error();
 }
