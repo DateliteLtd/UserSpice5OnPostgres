@@ -805,9 +805,9 @@ if (!function_exists('killSessions')) {
     foreach ($sessions as $session) {
       if (is_numeric($session)) {
         if (!$admin) {
-          $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE kUserSessionID = ? AND fkUserId = ?', [$session, $user->data()->id]);
+          $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE id = ? AND fkUserId = ?', [$session, $user->data()->id]);
         } else {
-          $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE kUserSessionID = ?', [$session]);
+          $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE id = ?', [$session]);
         }
         if (!$db->error()) {
           ++$i;
@@ -833,7 +833,7 @@ if (!function_exists('passwordResetKillSessions')) {
     $db = DB::getInstance();
     if (is_null($uid)) {
       if (isset($_SESSION['kUserSessionID'])) {
-        $q = $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE fkUserID = ? AND UserSessionEnded=0 AND kUserSessionID <> ?', [$user->data()->id, $_SESSION['kUserSessionID']]);
+        $q = $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE fkUserID = ? AND UserSessionEnded=0 AND id <> ?', [$user->data()->id, $_SESSION['kUserSessionID']]);
       }
     } else {
       $q = $db->query('UPDATE us_user_sessions SET UserSessionEnded=1,UserSessionEnded_Time=NOW() WHERE fkUserID = ? AND UserSessionEnded=0', [$uid]);

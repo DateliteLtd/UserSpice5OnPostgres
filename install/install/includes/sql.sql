@@ -699,7 +699,7 @@ CREATE TABLE us_announcements (
 --
 
 CREATE TABLE us_fingerprints (
-  kFingerprintID SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fkUserID INTEGER NOT NULL,
   Fingerprint VARCHAR(32) NOT NULL,
   Fingerprint_Expiry TIMESTAMP NOT NULL,
@@ -712,7 +712,7 @@ CREATE TABLE us_fingerprints (
 --
 
 CREATE TABLE us_fingerprint_assets (
-  kFingerprintAssetID SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fkFingerprintID INTEGER NOT NULL,
   IP_Address VARCHAR(255) NOT NULL,
   User_Browser VARCHAR(255) NOT NULL,
@@ -1010,7 +1010,7 @@ CREATE TABLE us_saas_orgs (
 --
 
 CREATE TABLE us_user_sessions (
-  kUserSessionID serial PRIMARY KEY,
+  id serial PRIMARY KEY,
   fkUserID integer NOT NULL,
   UserFingerprint varchar(255) NOT NULL,
   UserSessionIP varchar(255) NOT NULL,
@@ -1081,6 +1081,6 @@ ALTER SEQUENCE us_menus_id_seq RESTART WITH 3;
 
 ALTER SEQUENCE us_menu_items_id_seq RESTART WITH 45;
 
-ALTER SEQUENCE us_user_sessions_kusersessionid_seq RESTART WITH 2;
+ALTER SEQUENCE us_user_sessions_id_seq RESTART WITH 2;
 
 COMMIT;

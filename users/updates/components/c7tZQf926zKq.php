@@ -19,7 +19,7 @@ foreach($tables as $table) {
 }
 
 $db->query("CREATE TABLE us_fingerprints (
-  kFingerprintID SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fkUserID integer NOT NULL,
   Fingerprint varchar(32) NOT NULL,
   Fingerprint_Expiry timestamp NOT NULL,
@@ -35,7 +35,7 @@ if(!$db->error()) {
 }
 
 $db->query("CREATE TABLE us_fingerprint_assets (
-  kFingerprintAssetID SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fkFingerprintID INTEGER NOT NULL,
   IP_Address VARCHAR(255) NOT NULL,
   User_Browser VARCHAR(255) NOT NULL,
