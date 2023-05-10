@@ -23,6 +23,7 @@ $id = Input::get('id');
 $db->query('SELECT * FROM logs WHERE id = ?', [$id]);
 if ($db->count() == 1) {
     $return['Data'] = $db->first();
+    $return['Data']->metadata = stream_get_contents($return['Data']->metadata);
     if (validateJson($return['Data']->metadata)) {
         $return['isJson'] = true;
         $return['Data']->metadata = json_decode($return['Data']->metadata);
