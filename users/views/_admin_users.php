@@ -182,7 +182,7 @@ if ($showAllUsers == 1) {
     $search = Input::get('searchTerm');
     $userData = $db->query("SELECT
       u.*,
-      group_concat(p.name SEPARATOR ', ') AS perms
+      string_agg(p.name, ', ') AS perms
       FROM users AS u
       JOIN user_permission_matches AS upm ON u.id = upm.user_id
       LEFT OUTER JOIN permissions AS p ON p.id = upm.permission_id
