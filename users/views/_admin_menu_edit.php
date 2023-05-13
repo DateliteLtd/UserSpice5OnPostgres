@@ -112,7 +112,7 @@ if ($_POST) {
     //   'z_index' => Input::get('z_index'), 'brand_html' => $_POST['brand_html'],'justify'=>Input::get('justify')
     // ];
     $data = [
-      'menu_name' => Input::get('menu_name'), 'disabled' => Input::get('disabled'),
+      'menu_name' => Input::get('menu_name'), 'disabled' => Input::get('disabled') ?: '0',
       'theme' => Input::get('theme'), 'show_active' => Input::get('show_active'), 'type' => Input::get('menu_type'), 'nav_class' => Input::get('nav_class'),
       'z_index' => Input::get('z_index'), 'brand_html' => Input::get('brand_html'), 'justify' => Input::get('justify')
     ];
@@ -282,7 +282,6 @@ if ($_POST) {
             </div>
 
             <div class="form-check">
-              <input type="hidden" name="disabled" value="0">
               <input class="form-check-input" type="checkbox" value="1" id="disabled" name="disabled" <?= $item->disabled ? "checked" : "" ?> onchange="setDirty(true)">
               <label class="form-check-label" for="disabled">
                 Disabled
@@ -364,7 +363,6 @@ if ($_POST) {
             </div>
 
             <div class="form-check">
-              <input type="hidden" name="disabled" value="0">
               <input class="form-check-input" type="checkbox" value="1" id="disabled" name="disabled" <?= $menu->disabled ? "checked" : "" ?> onchange="setDirty(true)">
               <label class="form-check-label" for="disabled">
                 Disabled
