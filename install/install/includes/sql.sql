@@ -30,7 +30,7 @@ BEGIN;
 CREATE TABLE audit (
   id serial PRIMARY KEY,
   "user" integer NOT NULL,
-  page varchar(255) NOT NULL,
+  "page" varchar(255) NOT NULL,
   "timestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   ip inet NOT NULL,
   viewed boolean NOT NULL
@@ -92,9 +92,9 @@ CREATE TABLE email (
   verify_url varchar(255) NOT NULL,
   email_act integer NOT NULL,
   debug_level integer NOT NULL DEFAULT 0,
-  isSMTP integer NOT NULL DEFAULT 0,
-  isHTML varchar(5) NOT NULL DEFAULT 'true',
-  useSMTPauth varchar(6) NOT NULL DEFAULT 'true',
+  "isSMTP" integer NOT NULL DEFAULT 0,
+  "isHTML" varchar(5) NOT NULL DEFAULT 'true',
+  "useSMTPauth" varchar(6) NOT NULL DEFAULT 'true',
   authtype varchar(50) DEFAULT 'CRAM-MD5'
 );
 
@@ -102,7 +102,7 @@ CREATE TABLE email (
 -- Dumping data for table `email`
 --
 
-INSERT INTO email (id, website_name, smtp_server, smtp_port, email_login, email_pass, from_name, from_email, transport, verify_url, email_act, debug_level, isSMTP, isHTML, useSMTPauth, authtype) 
+INSERT INTO email (id, website_name, smtp_server, smtp_port, email_login, email_pass, from_name, from_email, transport, verify_url, email_act, debug_level, "isSMTP", "isHTML", "useSMTPauth", authtype) 
 VALUES (1, 'User Spice', 'smtp.gmail.com', 587, 'yourEmail@gmail.com', '1234', 'User Spice', 'yourEmail@gmail.com', 'tls', 'http://localhost/userspice', 0, 0, 0, 'true', 'true', 'CRAM-MD5');
 
 -- --------------------------------------------------------
@@ -700,10 +700,10 @@ CREATE TABLE us_announcements (
 
 CREATE TABLE us_fingerprints (
   id SERIAL PRIMARY KEY,
-  fkUserID INTEGER NOT NULL,
-  Fingerprint VARCHAR(32) NOT NULL,
-  Fingerprint_Expiry TIMESTAMP NOT NULL,
-  Fingerprint_Added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  "fkUserID" INTEGER NOT NULL,
+  "Fingerprint" VARCHAR(32) NOT NULL,
+  "Fingerprint_Expiry" TIMESTAMP NOT NULL,
+  "Fingerprint_Added" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 -- --------------------------------------------------------
 
@@ -713,10 +713,10 @@ CREATE TABLE us_fingerprints (
 
 CREATE TABLE us_fingerprint_assets (
   id SERIAL PRIMARY KEY,
-  fkFingerprintID INTEGER NOT NULL,
-  IP_Address VARCHAR(255) NOT NULL,
-  User_Browser VARCHAR(255) NOT NULL,
-  User_OS VARCHAR(255) NOT NULL
+  "fkFingerprintID" INTEGER NOT NULL,
+  "IP_Address" VARCHAR(255) NOT NULL,
+  "User_Browser" VARCHAR(255) NOT NULL,
+  "User_OS" VARCHAR(255) NOT NULL
 );
 
 -- --------------------------------------------------------
@@ -1011,16 +1011,16 @@ CREATE TABLE us_saas_orgs (
 
 CREATE TABLE us_user_sessions (
   id serial PRIMARY KEY,
-  fkUserID integer NOT NULL,
-  UserFingerprint varchar(255) NOT NULL,
-  UserSessionIP varchar(255) NOT NULL,
-  UserSessionOS varchar(255) NOT NULL,
-  UserSessionBrowser varchar(255) NOT NULL,
-  UserSessionStarted timestamp without time zone NOT NULL,
-  UserSessionLastUsed timestamp without time zone DEFAULT NULL,
-  UserSessionLastPage varchar(255) NOT NULL,
-  UserSessionEnded smallint NOT NULL DEFAULT 0,
-  UserSessionEnded_Time timestamp without time zone DEFAULT NULL
+  "fkUserID" integer NOT NULL,
+  "UserFingerprint" varchar(255) NOT NULL,
+  "UserSessionIP" varchar(255) NOT NULL,
+  "UserSessionOS" varchar(255) NOT NULL,
+  "UserSessionBrowser" varchar(255) NOT NULL,
+  "UserSessionStarted" timestamp without time zone NOT NULL,
+  "UserSessionLastUsed" timestamp without time zone DEFAULT NULL,
+  "UserSessionLastPage" varchar(255) NOT NULL,
+  "UserSessionEnded" smallint NOT NULL DEFAULT 0,
+  "UserSessionEnded_Time" timestamp without time zone DEFAULT NULL
 );
 
 --

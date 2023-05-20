@@ -163,11 +163,11 @@ if (!function_exists('email')) {
   $mail = new PHPMailer();
   $mail->CharSet = 'UTF-8';
   $mail->SMTPDebug = $results->debug_level;               // Enable verbose debug output
-  if ($results->issmtp == 1) {
+  if ($results->isSMTP == 1) {
     $mail->isSMTP();
   }             // Set mailer to use SMTP
   $mail->Host = $results->smtp_server;  									// Specify SMTP server
-  $mail->SMTPAuth = $results->usesmtpauth;                // Enable SMTP authentication
+  $mail->SMTPAuth = $results->useSMTPauth;                // Enable SMTP authentication
   $mail->Username = $results->email_login;                 // SMTP username
   $mail->Password = html_entity_decode($results->email_pass);    // SMTP password
   $mail->SMTPSecure = $results->transport;                 // Enable TLS encryption, `ssl` also accepted
@@ -192,7 +192,7 @@ if (!function_exists('email')) {
           }
 
   	$mail->addAddress(rawurldecode($to));
-    if($results->ishtml == 'true'){
+    if($results->isHTML == 'true'){
       $mail->isHTML(true);
     }
 
